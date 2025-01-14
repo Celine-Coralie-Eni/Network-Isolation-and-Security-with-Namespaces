@@ -39,7 +39,9 @@ Testing the setup using tools like ping and curl.
 A script to automate the creation of the setup above.
 
 ## Body
-Firstly, begin by using docker to create a bridge network that allows selective communication between containers using iptables and here our two containers are named Team_A and Team_B. To create a bridge network that allows selective communication between the two containers using iptables, follow these steps:
+Firstly, begin by using docker to create a bridge network that allows selective communication between containers using iptables and here our two containers are named Team_A and Team_B. But before this you have to install docker using the command 
+```sudo apt update && sudo apt install docker.io```
+To create a bridge network that allows selective communication between the two containers using iptables, follow these steps:
 
  ### 1. Create a Bridge Network: 
 First, create a custom bridge network using Docker. This network will be used to connect containers that need to communicate with each other 
