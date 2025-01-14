@@ -6,8 +6,10 @@ This project demonstrates how to configure and manage custom networking between 
 The iptables rules enforce specific communication policies between the containers.
 ** Features **
 
-**install docker in your machine if not found ***
+**install docker and docker compos in your machine if not found **
 ```sudo apt install docker.io```
+```sudo curl -L "https://github.com/docker/compose/releases/download/v2.32.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose```
   **Custom Bridge Network:** A private Docker network (mybridgenet) is used to isolate the containers.
   **Static IP Allocation:** Each container is assigned a fixed IP address within the custom network.
   ** Custom iptables Rules:**
