@@ -4,12 +4,15 @@
 This project demonstrates how to configure and manage custom networking between Docker containers using docker-compose, custom Docker images, and iptables rules. It creates two containers, Team_A and Team_B
 , connected to a custom bridge network.
 The iptables rules enforce specific communication policies between the containers.
-** Features **
+**Features**
 
-**install docker and docker compos in your machine if not found **
+**install docker and docker compos in your machine if not found**
+
 ```sudo apt install docker.io```
-```sudo curl -L "https://github.com/docker/compose/releases/download/v2.32.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose```
+```sudo curl -L "https://github.com/docker/compose/releases/download/v2.32.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ```
+```sudo chmod +x /usr/local/bin/docker-compose```
+
+
   **Custom Bridge Network:** A private Docker network (mybridgenet) is used to isolate the containers.
   **Static IP Allocation:** Each container is assigned a fixed IP address within the custom network.
   ** Custom iptables Rules:**
@@ -31,7 +34,8 @@ entrypoint.sh        # Configures iptables rules during container startup
 docker-compose.yml   # Defines the services and custom network
 README.md            # Project documentation
 
-**Setup and Usage **
+**Setup and Usage**
+
 **1.** Build and Start Containers
 
 Run the following command to build the Docker image and start the containers:
