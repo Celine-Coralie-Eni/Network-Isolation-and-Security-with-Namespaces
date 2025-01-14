@@ -8,8 +8,6 @@ docker run -d --name Team_B --network=mybridgenet ubuntu
 
 iptables -I FORWARD -s 172.19.0.2/24 -d 172.19.0.3/24 -j ACCEPT
 
-iptables -I FORWARD -d 172.19.0.2/24 -s 172.19.0.3/24 -j ACCEPT
-
 iptables -I FORWARD -s 172.19.0.3/24 -d 172.19.0.2/24 -j DROP
 
 sudo iptables-save > /etc/iptables/rules.v4
@@ -65,13 +63,11 @@ Use iptables to allow selective communication between the containers on the brid
 
 ```iptables -I FORWARD -s 172.19.0.2/24 -d 172.19.0.3/24 -j ACCEPT```
 
-```iptables -I FORWARD -d 172.19.0.2/24 -s 172.19.0.3/24 -j ACCEPT```
-
 The iptable command is used to configure the firewall rules on a Linux system to allow traffic between two specific IP addresses. The -I option inserts a new rule at the beginning of the specified chain (in this case, FORWARD). The FORWARD chain handles packets that are being forwarded through the system (i.e., not destined for or originating from the system itself). The -s 172.19.0.2/24 option specifies the source IP address of the packets to match. The -d 172.19.0.3/24 option specifies the destination IP address of the packets to match. The -j ACCEPT option specifies the target of the rule which determines what action to take when a packet matches the rule. In this case, the target is ACCEPT which means that the packet should be allowed to pass through the firewall.
 
-Now, in this case we want selective connection between the containers and this means that we have to ensure that only one container can ping the other and here only Team_A should able to ping Team_B and not vice versa so we will drop the IP address of Team_B and the source will become the IP address of Team_B and the destination will become the IP address of Team_A. It can be executed using this command:
+Now, in this case we want selective connection between the containers and this means that we have to ensure that only one container can ping the other and here only Team_A should able to ping Team_B and not vice versa so we will drop the IP address of Team_A and the source will become the IP address of Team_A and the destination will become the IP address of Team_B. It can be executed using this command:
 
-```iptables -I FORWARD -s 172.19.0.3/24 -d 172.19.0.2/24 -j DROP```
+```iptables -I FORWARD -s 172.19.0.2/24 -d 172.19.0.3/24 -j DROP```
 
 #### NB: 
 Use this command to get the IP addresses of the containers:
